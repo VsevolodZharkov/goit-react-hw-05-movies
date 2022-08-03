@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getPopMovies } from '../../axios/axios';
 
 export const RenderList = () => {
   const [data, setDate] = useState([]);
-  getPopMovies().then(res => {
-    setDate(res?.results);
-  });
-	
+	useEffect(() => {
+		getPopMovies().then(res => {
+			setDate(res?.results);
+		});
+	}, [])
+
   return (
     <>
       {data?.map(({ title, name, id }) => {

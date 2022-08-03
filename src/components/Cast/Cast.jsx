@@ -2,7 +2,7 @@ import { getCastMovies } from '../../axios/axios'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Style from '../../style/Cast.module.css'
-export const Cast = () => {
+const Cast = () => {
 	const { moviesId } = useParams();
 
 	const [ data, setDate ] = useState(null);
@@ -37,3 +37,4 @@ export const Cast = () => {
 		</section>
 	)
 }
+export default Cast;

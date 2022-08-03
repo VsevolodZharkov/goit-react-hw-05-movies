@@ -1,6 +1,6 @@
 
 import { RenderList } from '../components/RenderList/RenderList'
-export const Home = () => {
+const Home = () => {
 
 	return ( 
 		<main>
@@ -11,3 +11,4 @@ export const Home = () => {
 		</main>
 	)
 }
+export default Home;
