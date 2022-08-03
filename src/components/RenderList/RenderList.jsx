@@ -1,7 +1,24 @@
-export const RenderList = (data) => {
-	console.log(data);
-	return (
-		<>fsdf</>
-		// {data.map(({title}) => <li><p>{title}</p></li>)}
-	)
-} 
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getPopMovies } from '../../axios/axios';
+
+export const RenderList = () => {
+  const [data, setDate] = useState([]);
+  getPopMovies().then(res => {
+    setDate(res?.results);
+  });
+	
+  return (
+    <>
+      {data?.map(({ title, name, id }) => {
+        return (
+          <li key={id}>
+            <Link to={`/movies/${id}`} >
+              {title ? title : name}
+            </Link>
+          </li>
+        );
+      })}
+    </>
+  );
+};

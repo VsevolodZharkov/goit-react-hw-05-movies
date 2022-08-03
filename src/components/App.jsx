@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Navigation } from './Navigation/Navigation';
 import { Header } from './Header/header';
@@ -9,6 +10,7 @@ import { Cast } from './Cast/Cast';
 import { Reviews } from './Reviews/Reviews'
 import { NotFound } from 'page/NotFound';
 export const App = () => {
+  // const [id, setId] = useState('');
   return (
     <>
       <Container>
