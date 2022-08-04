@@ -14,7 +14,6 @@ const Reviews = () => {
 			console.log(err)
 		})
 	}, [moviesId])
-	console.log(data?.results.length);
 
 	return ( 
 		<section>

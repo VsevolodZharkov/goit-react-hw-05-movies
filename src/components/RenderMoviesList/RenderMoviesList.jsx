@@ -7,7 +7,7 @@ export const RenderMoviesList = ({data}) => {
       {data?.results.map(({ title, name, id }) => {
         return (
           <li key={id}>
-            <Link to={`/movies/${id}`} state={location}>
+            <Link to={`/movies/${id}`} state={{from: location}}>
               {title ? title : name}
             </Link>
           </li>

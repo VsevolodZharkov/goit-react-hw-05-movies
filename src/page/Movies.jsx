@@ -24,7 +24,7 @@ const Movies = () => {
   }, [nameFilm]);
 
 	useEffect(() => {
-		if(quaryRerender === '') {
+		if(quaryRerender === '' || quaryRerender === null) {
 			return
 		}
 		getSerchMovies(quaryRerender).then(res => {

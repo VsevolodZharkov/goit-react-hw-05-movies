@@ -18,8 +18,7 @@ const Cast = () => {
 			console.log(err)
 		})
 	}, [moviesId])
-	console.log(data);
-
+console.log(data);
 	return ( 
 		<section>
 			<h1>Cast</h1>

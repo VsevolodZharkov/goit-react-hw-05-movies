@@ -1,4 +1,4 @@
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { getDetailsMovies } from '../axios/axios'
 import { useState, useEffect } from 'react';
 import { ButtonBack } from '../components/Button/ButtonBack'
@@ -6,7 +6,7 @@ import  Style  from '../style/MoviesById.module.css'
 const MoviesById = () => {
 	const { moviesId } = useParams();
 	const [ data, setDate ] = useState(null);
-
+	const location = useLocation();
 	useEffect(() => {
 		getDetailsMovies(moviesId)
 		.then(res => {
@@ -39,10 +39,10 @@ const MoviesById = () => {
 			</div>
       <ul>
         <li>
-          <Link to="cast">Cast</Link>
+          <Link to="cast" state={location?.state}>Cast</Link>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <Link to="reviews" state={location?.state}>Reviews</Link>
         </li>
       </ul>
       <Outlet />
