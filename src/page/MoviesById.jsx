@@ -19,16 +19,16 @@ const MoviesById = () => {
 			console.log(err)
 		})
 	}, [moviesId])
-
+	const images = !data?.poster_path ? 
+	'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1K1IGys8BoXeletxFk9cGAKOTa6NtUgz3Yg&usqp=CAU'
+	: `https://image.tmdb.org/t/p/w500${data?.poster_path}`
 	return ( 
 		<main>
 			  <h1>MoviesById</h1>
 				<ButtonBack />
 			<div>
 				<img className={Style.Image} 
-				src={!data?.poster_path ? 
-					('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1K1IGys8BoXeletxFk9cGAKOTa6NtUgz3Yg&usqp=CAU') 
-				: (`https://image.tmdb.org/t/p/w500${data?.poster_path}`)} 
+				src={images} 
 				alt={data?.title}/>
 				<h2>{data?.title}</h2>
 				<p>User score: {data?.vote_average}</p>
