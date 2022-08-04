@@ -5,20 +5,15 @@ import { Routes, Route } from 'react-router-dom';
 import { Navigation } from './Navigation/Navigation';
 import { Header } from './Header/header';
 import { Container } from './Container/Container';
-// import Cast from './Cast/Cast';
-// import Reviews from './Reviews/Reviews';
-
 import 'react-toastify/dist/ReactToastify.css';
-// import Style from '../style/App.module.css'
 
 const HomeLazy = lazy(() => import('page/Home'));
 const MoviesLazy = lazy(() => import('page/Movies'));
 const MoviesByIdLazy = lazy(() => import('page/MoviesById'));
 const CastLazy = lazy(() => import('./Cast/Cast'));
-const ReviewsLazy = lazy(() => import('page/MoviesById'));
+const ReviewsLazy = lazy(() => import('./Reviews/Reviews'));
 
-const NotFoundLazy = lazy(() => import('./Reviews/Reviews'));
-
+const NotFoundLazy = lazy(() => import('../page/NotFound'));
 export const App = () => {
   return (
     <>

@@ -1,8 +1,9 @@
 import { Link, Outlet, useParams } from "react-router-dom";
 import { getDetailsMovies } from '../axios/axios'
 import { useState, useEffect } from 'react';
+import { ButtonBack } from '../components/Button/ButtonBack'
 import  Style  from '../style/MoviesById.module.css'
-export const MoviesById = () => {
+const MoviesById = () => {
 	const { moviesId } = useParams();
 	const [ data, setDate ] = useState(null);
 
@@ -18,11 +19,11 @@ export const MoviesById = () => {
 			console.log(err)
 		})
 	}, [moviesId])
-	console.log(data);
+
 	return ( 
 		<main>
 			  <h1>MoviesById</h1>
-				<Link to='/'>Go back</Link>
+				<ButtonBack />
 			<div>
 				<img className={Style.Image} 
 				src={!data?.poster_path ? 
@@ -48,3 +49,4 @@ export const MoviesById = () => {
 		</main>
 	)
 }
+export default MoviesById;

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { getSerchMovies } from '../axios/axios';
 import { RenderMoviesList } from '../components/RenderMoviesList/RenderMoviesList';
@@ -8,7 +9,8 @@ const Movies = () => {
 	const [nameFilm, setNameFilm] = useState('');
   const [query, setQuery] = useState('');
   const [data, setDate] = useState(null);
-
+	const [searchParams, setSearchParams] = useSearchParams();
+	const quaryRerender = searchParams.get('query');
   useEffect(() => {
 		if(nameFilm === '') {
 			return
@@ -20,6 +22,18 @@ const Movies = () => {
       setDate(res);
     });
   }, [nameFilm]);
+
+	useEffect(() => {
+		if(quaryRerender === '') {
+			return
+		}
+		getSerchMovies(quaryRerender).then(res => {
+      if (!res) {
+        return;
+      }
+      setDate(res);
+    });
+  }, [ quaryRerender ]);
 
   const clearQuery = () => {
     setQuery('');
@@ -37,9 +51,10 @@ const Movies = () => {
       return;
     }
 		setNameFilm(query)
+		setSearchParams({query})
     clearQuery();
   };
-
+	
   return (
     <>
       <div className={Style.MoviesBar}>
