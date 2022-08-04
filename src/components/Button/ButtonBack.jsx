@@ -4,7 +4,7 @@ export const ButtonBack = () => {
 	const location = useLocation();
 	return (
 		<>
-			<Link to={ location?.state }>Back</Link>
+			<Link to={ location?.state ?? '/'}>Back</Link>
 		</>
 	)
 }
